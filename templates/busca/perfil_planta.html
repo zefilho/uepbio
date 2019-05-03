@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+
+{% block corpo %}
+<table cellpadding="10">
+	<tr>
+		{%comment%}<td><img height="150" width="150" src="{{ planta.imagem.url }}" /></td>{%endcomment%}
+		<td>
+			<h2>{{ planta.nome_cientifico.capitalize }}</h2>
+			<h3>{{ planta.nome_popular }}<h3>
+		</td>
+	</tr>
+</table>
+<div id="informacao">
+	<span style="text-decoration: underline; font-size: 14;"><b>Descrição:</b></span>
+	<p>{{ planta.descricao }}</p>
+	
+	{% if planta.curiosidades %}
+	<span style="text-decoration: underline; font-size: 14;"><b>Curiosidades:</b></span>
+	<p>{{ planta.curiosidades }}</p>
+	{% endif %}
+	{% if sequencias %}
+	<span style="text-decoration: underline; font-size: 14;"><b>Sequências relacionadas:</b></span>
+	<ul>
+		{% for seq in sequencias %}
+		<li><a href="/sequencias/{{ planta.id }}/{{ seq.id }}/">{{ seq.titulo }}</a></li>
+		{% endfor %}
+	</ul>
+	{% endif %}
+</div>
+{% endblock %}

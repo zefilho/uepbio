@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+
+{% block busca %}
+
+<div>
+	<div id="gamb">
+	</div>
+		<form id="form-busca" action="" method="get">
+		
+				{% csrf_token %}
+				{% for campo in busca_form %}
+					{{campo}}
+				{% endfor %}
+				<button type="submit" class="botao"></button>
+		</form>	
+</div>
+{% endblock %}

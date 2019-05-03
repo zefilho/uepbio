@@ -1,0 +1,55 @@
+<!DOCTYPE HTML>
+<html lang="pt-br">
+    <head>
+        <meta charset="utf-8">
+
+        <title>{% block titulo %}uepBio{% endblock %}</title>
+        {% block estilos %}
+            <link rel="stylesheet" type="text/css" href="/media/css/base.css" />
+        {% endblock %}
+        {% block scripts %}{% endblock %}
+    </head>
+
+    <body>
+        <header>
+        
+            {% block login %}{% endblock %}
+            <div id="cabecalho">
+                <h1>uepBio</h1>
+                <h3>Banco de dados de sequências biológicas da UEPB/UFCG</h3>
+            </div>
+            <div id="buscar">
+            {% block busca %}
+            <!-- código do buscador -->
+            {% endblock %}
+            </div>
+            {% block menu %}
+                <nav>
+                    <ul>
+                        <li><a href="/">Início</a></li>
+                        {% if user.is_authenticated %}
+                            <li><a href="/usuarios/">Usuários</a></li>
+                        {% endif %}
+                        <li><a href="/plantas/">Plantas</a></li>
+                        <li><a href="/sequencias/">Sequências</a></li>
+                        <li><a href="/contato/">Contato</a></li>
+                    </ul>
+                </nav>
+            {% endblock %}
+            {% block submenu %}{% endblock %}
+        </header>           
+        <div id="conteudo">
+            
+        
+            {% block corpo %}
+            <!-- corpo -->
+            {% endblock %}
+        </div>
+        <footer>
+            Apoio:
+                UEPB, UFCG
+            <p>Copyright &copy; 2011 - Todos os direitos reservados à Universidade Estadual da Paraíba.</p>
+        </footer>
+        
+    </body>
+<html>

@@ -1,0 +1,59 @@
+{% extends "busca/resul_seq.html" %}
+
+{% block estilos_extra %}
+	<script type="text/javascript" src="{{ STATIC_URL }}js/raphael-min.js" ></script>
+    <script type="text/javascript" src="{{ STATIC_URL }}js/jsphylosvg-min.js"></script>
+	<script type="text/javascript" src="{{ STATIC_URL }}js/unitip/js/unitip.js"></script>
+    <script type="text/javascript" src="{{STATIC_URL}}yui/build/yui/yui-min.js"></script>
+	<link rel="stylesheet" type="text/css" href="{{ STATIC_URL }}js/unitip/css/unitip.css" media="all" />
+	
+{% endblock %}
+
+{% block java %}
+	<script type="text/javascript">
+	window.onload = function(){
+    YUI().use('oop', 'json-stringify', 'io-base', 'event', 'event-delegate', function(Y){
+        var uri = "{{STATIC_URL}}teste.xml";
+        function complete(id, o, args) {
+            var data = o.responseXML; // Response data.
+            var dataObject = {
+                        phyloxml: data,
+                        fileSource: true
+                    };      
+            phylocanvas = new Smits.PhyloCanvas(
+                dataObject,
+                'svgCanvas', 
+                800, 800,
+                'circular'
+                             
+            );
+            init(); //unitip
+        };
+        Y.on('io:complete', complete, Y);
+        var request = Y.io(uri);
+    });
+};
+	</script>
+
+{% endblock %}
+
+{% block nome %}
+		
+
+    <!--<div id="info_align">
+        <header><p style="font-size:20px; color:green;">Apresentação Alinhamento</p></br></header>
+    
+        <div id="alinhamento">
+        <pre style="margin-top:40px;margin-left:37px;">{{teste}}</pre>
+        <h5><a href="{{ sequencia.arquivo.url }}" style="color:blue; margin-left:37px;">(download)</a></h5>
+        </div>
+        
+        
+    </div>-->
+
+{% endblock %}
+
+{% block contato %}
+	<div id="svgCanvas"> </div>
+
+{% endblock %}

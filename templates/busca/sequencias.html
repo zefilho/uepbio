@@ -1,0 +1,25 @@
+{% extends 'base_busca.html' %}
+
+{% block corpo %}
+    <div id="informacao">
+        <p>Essa é a página das sequências. Busque-as!</p>
+    </div>
+    <div id="ultimas">
+        {% if ultimas %}
+            <table>
+                <tr>
+                    <th>Sequência</th>
+                    <th>Data de envio</th>
+                </tr>
+                {% for sequencia in ultimas %}
+                <tr>
+                    <td><a href="/sequencias/{{ sequencia.planta_id }}/{{ sequencia.id }}">{{ sequencia.titulo }}</a></td>
+                    <td>{{ sequencia.data|date }}</td>
+                </tr>
+                {% endfor %}
+            </table>
+        {% else %}
+				<div id="ultimas_falso"><p>Nenhuma sequência adicionada recentemente.</p></div> 				               
+        {% endif %}
+    </div>
+{% endblock %}

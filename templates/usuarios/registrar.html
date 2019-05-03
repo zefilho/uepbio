@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+
+{% block titulo %}uepBio - Registrar{% endblock %}
+
+{% block corpo %}
+      <h2>Criar conta</h2>
+      <form action="." method="post">
+        {% csrf_token %}
+        <table>
+            {{ form.as_table }}
+        </table>
+        <input type="submit" value="Criar conta" class="butao"/>
+      </label>
+{% endblock %}

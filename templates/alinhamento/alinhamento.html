@@ -1,0 +1,50 @@
+{% extends 'busca/resul_planta.html' %}
+
+{% block nome %}
+	<p style="font-size:20px; color:green;">Alinhamento</p>	
+{% endblock %}
+
+{%block contato%}
+<div id="pagina_conteudo">
+<!--
+
+	<form method="POST">	
+		{% csrf_token %}
+		{% for campo in form %}
+			<div class="fieldWrapper">
+				{% if campo.errors%}
+					<div style="width:170px; height:20px; list-style:none;font-size:11.5px;" class="notice error">{{ campo.errors }}</div>		
+				{% endif %}	
+				{{ campo.label_tag }}:</br>
+				{{ campo }}
+			</div>
+		{% endfor %}
+		<button type="submit" style="margin-top:10px;">Enviar</button>	
+	</form>-->
+
+	
+	<form method="POST">
+		{% csrf_token %}
+		<p><label for="id_sequencia_one" class="label_test">Sequencia_UM:</label></br>
+    	<textarea id="id_sequencia_one" type="text" name="sequencia_one" style="height:120px; width:400px;"/></textarea></p>
+    	<p><label for="id_sequencia_two" class="label_test">Sequencia_DOIS:</label></br>
+    	<textarea id="id_sequencia_two" type="text" name="sequencia_two" style="height:120px; width:400px;"/></textarea></p>
+    	<p><label for="id_file_seq" class="label_test">Upload_Arquivo:</label>
+    		{{form.file_seq}}
+
+    	<div id="form_ali">
+    		<p style="font-size:20px;color:green;">Parametros</p>
+    		<p><label for="id_gap_extension" class="label_test">Gap_Extensão:</label></br>
+    			{{form.gap_extension}}
+    		<p><label for="id_gap_open" class="label_test">Gap_Abertura_Penalidade:</label></br>
+    			{{form.gap_open}}	
+    		<p><label for="id_gap_separation" class="label_test">Gap_Separação_Distancia:</label></br>
+    			{{form.gap_separation}}		
+    		<p><label for="id_end_gap" class="label_test">Gap_Final:</label></br>
+    			{{form.end_gap}}		
+    	</div>
+    	<button type="submit" style="margin-top:5px;">Enviar</button>
+	</form>
+	
+</div>
+{%endblock%}

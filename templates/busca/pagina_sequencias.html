@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+
+{% block corpo %}
+<p>Sequências relacionadas a <b>{{ planta.nome_cientifico }}</b>:</p>
+
+<ul>
+	{% for seq in sequencias.object_list %}
+	   <li><a href="/sequencias/{{ planta.id }}/{{ seq.id }}/">{{ seq.titulo }}</a></li>
+	{% empty %}
+	   <li>Nenhuma sequência encontrada.</li>
+	{% endfor %}
+</ul>
+
+<div class="paginacao">
+    <span class="links-pagina">
+        {% if sequencias.has_previous %}
+            <a href="?pagina={{ sequencias.previous_page_number }}">Anterior</a>
+        {% endif %}
+
+        <span class="pagina-atual">
+            Página {{ sequencias.number }} de {{ sequencias.paginator.num_pages }}
+        </span>
+
+        {% if sequencias.has_next %}
+            <a href="?pagina={{ sequencias.next_page_number }}">Próxima</a>
+        {% endif %}
+    </span>
+</div>
+
+<a href="javascript:history.go(-1);">Voltar</a>
+{% endblock %}

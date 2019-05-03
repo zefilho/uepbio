@@ -1,0 +1,250 @@
+html, body {
+    margin: 0px;
+    padding: 0px 0px;
+    font-size: 12px; 
+    font-family: Arial, Helvetica, sans-serif;
+    height:100%;
+    color:#5c5c5c;
+}
+#tudo{
+    position:relative;
+    min-height: 100%;
+    
+}
+#cabecalho {
+    background-image: url(/media/images/header-repeat.png);
+    background-repeat:repeat-x;
+    height:100px;
+    padding-left:158px;
+}
+#conteudo_f{
+	margin:10px;
+}
+#conteudo {
+	background-image:url(/media/images/content-repeat2.png);
+	background-repeat:repeat-x;   
+    padding-top:20px;
+    padding-bottom:50px;       
+}
+#container{
+	margin-left:158px;
+	margin-right:158px;
+	text-align: justify;
+}
+#form-busca {
+	padding-top:15px;
+	padding-left:158px;
+}
+#form-busca input{
+	margin-top:5px;
+	height:22px;
+	background:transparent;	
+	border:0px;
+	background-image:url(/media/images/pesquisa.png);
+	background-repeat:no-repeat;
+	padding-left:7px;
+	width:270px;
+
+}
+#form-busca .botao {
+	margin:0px;
+	background:transparent;
+	border:0px;
+	background-image:url(/media/images/botao2.png);
+	background-repeat:no-repeat;
+	width:70px;
+	height:26px;
+	position:absolute;
+	top:163px;
+    left:530px;
+}
+#form-busca select{
+	width:100px;
+	background:transparent;
+	border:0px;
+	height:26px;
+	padding-left:5px;
+}
+
+#form-contato label{
+    
+    padding-bottom:10px;
+}
+
+#informacao {
+    padding:10px 0 10px 0;
+    background: AliceBlue;
+}
+#login{
+	float:right;
+	padding-right:10px;
+}
+
+footer {
+    
+    position: relative;
+    bottom:0;
+    width:100%;
+    height:50px;
+    background-color:#F0F0F0;
+    
+}
+#apoio{
+	background-image:url(/media/images/bk_horiz_line.jpg);
+	background-repeat:repeat-x;
+	height:2px;
+}
+#parceiro{
+	background-image:url(/media/images/home_02.jpg);
+	background-repeat:repeat-x;
+	background-position:top;
+	height:200px;
+	padding:0 10px 0 10px;	
+}
+#apoio_im{
+	background-image:url(/media/images/apoio2.png);
+	background-repeat:no-repeat;
+	width:62px;
+	height:17px;
+	position:absolute;
+	top:30px;
+	left:155px;
+}
+#rodape{
+	background-image:url(/media/images/content-repeat.png);
+	background-repeat:repeat-x;
+	padding-top:20px;
+	padding-left:158px;
+	margin:0px;
+	height:80px;
+		
+}
+#botao-buscar {
+    position:absolute;
+    height:25px;
+    top:132px;
+    left:395px;
+}
+#buscar{
+	background-image:url(/media/images/home_03.jpg);
+	background-repeat:repeat-x;
+	width:100%;
+	height:61px;
+}
+#gamb{
+	background-image:url(/media/images/pesquisa.png);
+	background-repeat:no-repeat;
+	height:24px;
+	float:left;
+	margin:20px;
+	position:absolute;
+	left:136px;
+	width:3px;
+	
+}
+
+input{
+    width:275px;
+}
+
+h1 {
+    font: 22px;
+    color: black;
+}
+
+h3 {
+    font: 16px;
+    color: Black;
+}
+
+pre {
+    text-align: left;
+}
+
+nav {
+    background-image: url(/media/images/navigation-repeat.jpg);
+    background-repeat:repeat-x;
+    display: table;
+    width: 100%;
+    height: 43px;
+    border-bottom:5px solid;
+    border-color:Green;
+    font: 14px colibri,verdana, trebuchet ms, ubuntu, arial, tahoma, sans-serif;
+    padding-top:7px;
+    padding-left:150px;
+}
+
+nav ul {
+    padding:0px;
+    margin:0px;
+    float: left;
+    width: 100%;
+	background-image: url(/media/images/navigation-repeat.jpg);
+    background-repeat:repeat-x;
+    list-style:none;
+    text-decoration:none;
+}
+
+nav ul li {
+    display: inline;
+    text-decoration:none;
+}
+
+nav ul li a {
+    padding: 2px 10px;
+    float:left;
+    /* visual do link */
+	background-image: url(/media/images/navigation-repeat.jpg);
+    background-repeat:repeat-x;
+    color: black;
+    text-decoration: none;
+    
+}
+
+nav ul li a:hover {
+    padding: 2px 10px;
+    float:left;
+    /* visual do link */
+    background-color: RoyalBlue;
+    color: Green;
+    text-decoration: none;
+    
+}
+
+.button-contato{
+	margin-top:7px;
+}
+.butao{
+	margin-top:15px;
+	width:100px;
+}
+.ultimas{
+	padding-left:20px;
+}
+#ultimas{
+	margin-left:-22px;
+}
+#ultimas table tr th{
+	padding-left:20px;
+}
+#ultimas table tr td{
+	padding-left:20px;
+}
+#ultimas_falso{
+	padding-left:21px;
+}
+#principal{
+	background-color:#f8f8f8;
+	background-image:url(/media/images/module-bg.png);
+	background-repeat:repeat-x;
+	background-position:bottom;
+	border:1px solid;
+	border-color:#eaeaea;
+	margin-top:20px;
+	height:300px;
+	width:650px;
+	padding:10px;
+}
+.paginacao{
+	padding-top:10px;
+}

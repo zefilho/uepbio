@@ -1,0 +1,7 @@
+[paths]
+default = https://zefilho@bitbucket.org/luizaugustomm/uepbio
+
+
+[tortoisehg]
+postpull = update
+autoresolve = False

@@ -1,0 +1,26 @@
+{% extends 'base_busca.html' %}
+
+{% block corpo %}
+    <div id="informacao">
+        <p>Essa é a página das plantas. Busque-as!</p>
+    </div>
+    <div id="ultimas">
+        {% if ultimas %}
+            <table>
+                <tr>
+                    <th>Planta</th>
+                    <th>Data de envio</th>
+                </tr>
+                {% for planta in ultimas %}
+                <tr>
+                    <td><a href="/plantas/{{ planta.id }}">{{ planta.nome_cientifico }}</a></td>
+                    <td>{{ planta.data|date }}</td>
+                </tr>
+                
+                {% endfor %}
+            </table>
+        {% else %}
+					<div id="ultimas_falso"><p>Nenhuma planta adicionada recentemente.</p></div>
+        {% endif %}
+    </div>
+{% endblock %}

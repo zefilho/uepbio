@@ -1,0 +1,5 @@
+repo: ba2a9e8941e464bb24524712c4924e9fe8043482
+node: c3e2162d7e2d28a6037224005b9319b20e003516
+branch: usuarios
+latesttag: null
+latesttagdistance: 42

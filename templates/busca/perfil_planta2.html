@@ -1,0 +1,45 @@
+{% extends "busca/resul_planta.html" %}
+{% block nome %}
+	<p style="font-size:20px; color:green;">Apresentação Organismo</p>	
+{% endblock %}
+
+{% block contato %}
+<table cellpadding="10" class="perfil_planta">
+	<tr>
+		<td>
+			<div class="gallery">
+				<a href="{{ planta.imagem.url }}"><img  height="170" width="150" src="{{ planta.imagem.url }}"/></a>
+			</div>
+		</td>
+		<td>
+			<div id="planta_nomes">
+				<h4><em><p style="color:black;">Nome Cientifico: {{ planta.nome_cientifico.capitalize }}</p></em></h4>
+				<h5><em><p>Nome Vulgar: {{ planta.nome_popular.title }}</p></em></h5>
+			</div>
+		</td>
+	</tr>
+</table>
+<div id="perfil_planta2">
+	<span style="text-decoration: underline; font-size: 14;"><b>Descrição:</b></span>
+	<p>{{ planta.descricao|linebreaks }}</p>
+	
+	{% if planta.curiosidades %}
+	<span style="text-decoration: underline; font-size: 14;"><b>Informações Relevantes:</b></span>
+	<p> {{ planta.curiosidades }}</p>
+	{% endif %}
+	
+	{% if planta.referencias %}
+	<span style="text-decoration: underline; font-size: 14;"><b>Referencias:</b></span>
+	<p> {{ planta.referencias }}</p>
+	{% endif %}
+	
+	{% if sequencias %}
+	<span style="text-decoration: underline; font-size: 14;"><b>Sequências relacionadas:</b></span>
+	<ul>
+		{% for seq in sequencias %}
+		<li><a href="/sequencias/{{ planta.id }}/{{ seq.id }}/">{{ seq.titulo }}</a></li>
+		{% endfor %}
+	</ul>
+	{% endif %}
+</div>
+{% endblock %}

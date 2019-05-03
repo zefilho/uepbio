@@ -1,0 +1,112 @@
+
+
+<!DOCTYPE html>
+<html>
+
+<head>
+	<title>Bioinformática DataBase</title>
+	<meta charset="UTF-8"/>
+	{% block estilos %}
+	<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.6.4/jquery.min.js"></script>
+	<script type="text/javascript" src="{{ STATIC_URL }}js/prettify.js"></script>                                   
+	<script type="text/javascript" src="{{ STATIC_URL }}js/kickstart.js"></script> 
+	<script type="text/javascript" src="{{ STATIC_URL }}js/jquery.customselect.js"></script>    
+	<script type="text/javascript" src="{{ STATIC_URL }}js/login.js"></script>  
+	
+	{% endblock %}                    
+	<link rel="stylesheet" type="text/css" href="{{ STATIC_URL }}css/kickstart.css" media="all" />
+	<link rel="stylesheet" type="text/css" href="{{ STATIC_URL }}css/style.css" media="all" />
+	<link rel="stylesheet" type="text/css" href="{{ STATIC_URL }}css/login.css" media="all" />
+	{% block estilos_extra %}{% endblock %}
+	{% block java %}{% endblock %}
+	<script type="text/javascript">
+		$(document).ready(function(){
+			$("select").customselect();
+		});
+	</script>
+	
+</head>
+
+<style><!--
+#submit {
+	cursor:pointer;
+	width:70px;
+	height: 31px;
+	line-height:0;
+	font-size:0;
+	text-indent:-999px;
+	color: transparent;
+	background: url(ico-search.png) no-repeat green center;
+	border: 1px solid green;
+	-moz-border-radius: 2px;
+	-webkit-border-radius: 2px;
+}
+/* Style the search button hover state */
+#submit:hover {
+	background: url(ico-search.png) no-repeat center black;
+	border: 1px solid black;
+}-->
+</style>
+
+<body>
+<div id="geral">
+	{% block menu %}
+	<div id="topo">
+		<ul>
+			<li><a href="/">Pesquisar</a></li>
+			<li><a href="/alinhamento/">Alinhamento</a></li>
+			<li><a href="/blast/">Blast</a></li>
+			<li><a href="/filogenia/">Filogenia</a></li>
+			<!--
+			
+			
+			<li><a href="banco">Banco de dados</a></li>-->
+			<li><a href="/contato/">Contato</a></li>
+			{%block login %}
+				{% if user.is_authenticated %}
+				<li><a href="/usuarios/logout/" style="float:right; margin-right:85px;">Sair</a></li>
+				{%endif%}
+			{%endblock%}
+		</ul>
+	</div>
+	{% endblock %}
+	
+	
+	<div id="conteudo_geral">
+		{% block corpo %}
+		<br>		
+			{% if user.is_authenticated %}
+				<a href="/usuarios/{{ user.username }}/" class="button" style="margin-right:60px;float:right;"><span>{{ user.username|title }}</span><em></em></a>
+			{% else %}
+				<a href="/login/" class="button" style="margin-right:60px;float:right;" id=""><span>Login</span><em></em></a>
+			{% endif %}
+			
+			<div id="pesquisa">
+			<img class="style2" src="{{STATIC_URL}}images/24_bioinformatica2.png" width="630" height="150"/>
+			<br>
+				
+				<form id="busca" action="" method="get">
+					{% csrf_token %}
+					{% for campo in busca_form %}
+						{{campo}}
+					{% endfor %}
+					
+					<button class="small square" type="submit" style="font-weight:bold;">Pesquisar</button>			
+				</form>
+				
+			</div>	
+		{% endblock %}
+	</div>
+	
+	
+</div>	
+	
+<footer>
+	<p>Copyright UFCG, UEPB</p>
+</footer>
+	
+
+
+</body>
+
+</html>

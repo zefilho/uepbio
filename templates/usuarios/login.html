@@ -1,0 +1,46 @@
+{% extends "test.html" %}
+
+{% load url from future %}
+
+{% block menu %}
+	<div class="busca_two">
+		<div style="position:absolute; left:60px; top:6px;"><img class="style2" src="{{STATIC_URL}}images/24_bioinformatica4.png" width="300" height="68">
+		</div>
+		<div style="position:absolute; right:160px; top:24px;">
+			<a href="/usuarios/registrar/"><button class="button pop green" type="submit" style="font-weight:bold;">Cadastre-se</button></a>
+		</div>
+	</div>
+	
+{% endblock %}
+
+{% block corpo %}
+
+
+<div id="login_form">
+	<form method="post" action="{% url 'django.contrib.auth.views.login' %}">
+		{% csrf_token %}
+		<!--<table>
+			<tr>
+				<td>{{ form.username.label_tag }}</td>
+				<td>{{ form.username }}</td>
+			</tr>
+			<tr>
+				<td>{{ form.password.label_tag }}</td>
+				<td>{{ form.password }}</td>
+			</tr>
+		</table>-->
+		<span style="font-size:16px; margin-bottom:15px; color:lightwhite;"> Login </span><br>
+		{% for campo in form %}
+			{{campo.label_tag}}</br>
+			{{campo}}</br>
+		{% endfor %}
+
+		<button class="button pop" type="submit" style="font-weight:bold;">Login</button>
+		<input type="hidden" name="next" value="{{ next }}" />
+	</form>
+</div>
+
+{% if form.errors %}
+    <div style="width:220px; height:20px;font-size:11.5px; position: absolute; top:445px; left:477px;" class="notice error">Nome de usuário e/ou senha incorreto</div>
+{% endif %}
+{% endblock %}

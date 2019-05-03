@@ -1,0 +1,8 @@
+#NEXUS
+Begin Taxa;
+ Dimensions NTax=2;
+ TaxLabels Clade Clade;
+End;
+Begin Trees;
+ Tree tree1=[&U](:0.00000,:0.00000):1.00000;;
+End;

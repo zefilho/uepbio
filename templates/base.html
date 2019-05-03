@@ -1,0 +1,75 @@
+<!DOCTYPE HTML>
+<html lang="pt-br">
+    <head>
+        <meta charset="utf-8">
+
+        <title>{% block titulo %}uepBio{% endblock %}</title>
+        {% block estilos %}
+            <link rel="stylesheet" type="text/css" href="/media/css/base.css" />
+        {% endblock %}
+        {% block scripts %}{% endblock %}
+    </head>
+
+    <body>
+		<div id="tudo">
+        <header>
+            {% block login %}
+                <div id="login">
+                    {% if user.is_authenticated %}
+                        <p>
+                            Bem-vindo, <a href="/usuarios/{{ user.username }}/">{{ user.username }}</a>.<br />
+                            <a href="/usuarios/logout/">Sair</a>
+                        </p>
+                    {% else %}
+                        <p><a href="/usuarios/login/">Login</a> ou <a href="/usuarios/registrar/">Registro</a></p>
+                    {% endif %}
+                </div>
+            {% endblock %}
+            <div id="cabecalho">
+                <h1>uepBio</h1>
+                <h3>Banco de dados de sequências biológicas da UEPB/UFCG</h3>
+            </div>
+            {% block menu %}
+                <nav>
+                    <ul>
+                        <li><a href="/">Início</a></li>
+                        {% if user.is_authenticated %}
+                            <li><a href="/usuarios/">Usuários</a></li>
+                        {% endif %}
+                        <li><a href="/plantas/">Plantas</a></li>
+                        <li><a href="/sequencias/">Sequências</a></li>
+                        <li><a href="/contato/">Contato</a></li>
+                    </ul>
+                </nav>
+            {% endblock %}
+            {% block submenu %}{% endblock %}
+        </header>       
+        <div id="buscar">
+        {% block busca %}
+            <!-- código do buscador -->
+        {% endblock %}
+        </div>    
+        <div id="conteudo">
+            <div id ="container">
+        		{% block corpo %}
+				<!-- corpo -->
+				{% endblock %}
+            </div>
+        </div>
+        
+        <footer>
+			<div id="apoio"></div>
+			<div id="parceiro">
+				<div id="apoio_im">
+					<IMG SRC="/media/images/uepb.png" ALT="Uepb" style="border:2px; padding-top:50px;">
+				</div>
+			</div>
+			<div id="rodape">
+            Apoio:
+                UEPB, UFCG
+            <p>Copyright &copy; 2011 - Todos os direitos reservados à Universidade Estadual da Paraíba.</p>
+            </div>
+        </footer>
+        </div>
+    </body>
+<html>

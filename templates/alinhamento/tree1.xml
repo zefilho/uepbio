@@ -1,0 +1,15 @@
+<phyloxml xmlns="http://www.phyloxml.org" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.phyloxml.org http://www.phyloxml.org/1.10/phyloxml.xsd">
+  <phylogeny rooted="false">
+    <clade>
+      <branch_length>1.0</branch_length>
+      <clade>
+        <branch_length>0.125</branch_length>
+        <confidence type="unknown">1.0</confidence>
+      </clade>
+      <clade>
+        <branch_length>0.125</branch_length>
+        <confidence type="unknown">2.0</confidence>
+      </clade>
+    </clade>
+  </phylogeny>
+</phyloxml>

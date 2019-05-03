@@ -1,0 +1,35 @@
+{% extends 'base_busca.html' %}
+
+{% block corpo %}
+<p>Resultados para <b>{{ busca }}</b>:</p>
+<table cellpadding="5">
+    {% for item in resultado.object_list %}
+    <tr>
+        {% if item.nome_popular %}
+        <td><a href="/plantas/{{item.id}}/">{{ item.nome_cientifico }} ({{ item.nome_popular }})</a></td>
+        {% else %}
+        <td><a href="/plantas/{{item.id}}/">{{ item.nome_cientifico }}</a></td>
+        {% endif %}
+        <td><a href="/sequencias/{{item.id}}/">Ver sequências</a></td>
+    </tr>
+    {% empty %}
+    <p><b>Nenhuma planta encontrada.</b></p>
+    {% endfor %}
+</table>
+
+<div class="paginacao">
+    <span class="links-pagina">
+        {% if resultado.has_previous %}
+            <a href="?pagina={{ resultado.previous_page_number }}">Anterior</a>
+        {% endif %}
+
+        <span class="pagina-atual">
+            Página {{ resultado.number }} de {{ resultado.paginator.num_pages }}
+        </span>
+
+        {% if resultado.has_next %}
+            <a href="?pagina={{ resultado.next_page_number }}">Próxima</a>
+        {% endif %}
+    </span>
+</div> 
+{% endblock %}

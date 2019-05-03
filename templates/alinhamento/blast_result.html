@@ -1,0 +1,32 @@
+{% extends "busca/resul_seq.html" %}
+
+{% block nome %}
+	<p style="font-size:20px; color:green;">Apresentação Blast</p>	
+{% endblock %}
+
+{% block contato %}
+<div id="perfil_planta2">
+		<p style="font-size: 11px;"></p>
+	<div id="info_align">
+		<header><b>Resultado do Blast</b></br></header>
+	
+		<div id="alinhamento">
+		<pre>{{blast}}</pre>
+		</div> 
+		<!--<div id="arvore" class="col_3">
+			<header><b>Arvore</b></br></header>
+			<pre>{% spaceless %}
+			{{fasta|linebreaksbr}}
+			
+			{% endspaceless %}
+			</pre>
+		</div> -->
+		
+		
+	</div>
+
+</div>
+
+
+
+{% endblock %}

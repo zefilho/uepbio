@@ -1,0 +1,116 @@
+{% extends 'test.html' %}
+
+{%block login%}
+	{% if user.is_authenticated %}
+			<li><a href="/usuarios/logout/" style="float:right;margin-right:100px;">Sair</a></li>
+			<!--<li><a href="#" style="float:right; margin-right:10px; ">{{ user.username.title }}</a></li>			-->
+	{%else%}
+		<li><a href="/login/" style="float:right; margin-right:50px;">Login</a></li>
+	{%endif%}
+	
+{%endblock%}
+
+{% block corpo %}
+
+<div class="busca_two" >
+
+    <div class ="bioinfo"><img class="style2" src="{{STATIC_URL}}images/24_bioinformatica4.png" width="300" height="68"></div>
+	<form class="form_result" action="" method="get" style="float:right;">
+	{{ busca_form.escolha }}
+	{{ busca_form.busca }}
+	<button class="small square" type="submit" style="font-weight:bold;">Pesquisar</button>
+	</form>
+</div>
+
+<div id="opcoes">
+	{% block nome %}
+	<p style="font-size:20px; color:green;">Pesquisar</p>
+	<p style="font-size:15px; margin-left:119px;">Número de resultados para <b>{{ busca }}</b>: {{tamanho}}</p>
+	{% endblock %}
+	{% if user.is_authenticated %}
+	<ul class="button-bar" id="submeter">
+		<li><a href=""><span class="icon" data-icon="7"></span><b> {{ user.username.title }}</b></a></li>
+		<li><a href="/admin/busca"><span class="icon" data-icon="p"></span> <b>Submissão</b></a></li>
+	</ul>
+	{% endif %}
+</div>
+
+{% block contato%}
+	
+	<div id="menu-lateral">
+		<nav>
+			<ul>
+				<li><a href="#">Alinhamento</a></li>
+				<li><a href="#">Alinhamento Multiplo</a></li>
+				<li><a href="#">Blast</a></li>
+				<li><a href="#">Alinhamento</a></li>
+			</ul>
+		</nav>
+	</div>
+	
+
+	
+	<div id="pesquisa_result">	
+		
+			{% for item in resultado.object_list %}
+			<ul class="">
+				{% if item.nome_popular %}
+				<li><a href="/plantas/{{item.id}}/">{{ item.nome_cientifico.title }} ({{ item.nome_popular.capitalize }})</a> <br> {{item.descricao|linebreaks|truncatewords:20}}</li>
+				{% else %}
+				<li><a href="/plantas/{{item.id}}/">{{ item.nome_cientifico.capitalize }}</a><br>{{item.descricao}}</li>
+				{% endif %}
+				<li><p><a href="/sequencias/{{item.id}}/"> Sequencias Relacionadas</a></p></li>
+				
+			</ul>
+			{% empty %}
+			<p style="margin-left:24px; font-weight:bold;">Nenhum resultado encontrado</p>
+			{% endfor %}
+			
+
+		<div>
+			
+			<span>
+				
+				
+				<span class="pagina-atual">
+					<ul class="button-bar">
+						<!--<li><a href="">Pagina {{ resultado.number }} de {{ resultado.paginator.num_pages }}</a></li>-->
+						{% if resultado.has_previous %}
+						<li><a href="?pagina={{ resultado.previous_page_number }}"><span class="icon" data-icon="{"></span></a></li>
+						{% endif %}
+						
+						{% if range|length != 1 %}
+							{%for i in range %}
+							<li><a href="?pagina={{ i }}">{{i}}</a></li>
+							{% endfor %}
+						{% endif %}
+						
+						{% if resultado.has_next %}
+						<li><a href="?pagina={{ resultado.next_page_number }}"><span class="icon" data-icon="}"></span></a></li>
+						{% endif %}
+					</ul>
+				</span>
+				<!--{% if resultado.has_next %}
+				<span class="pagina-atual">
+					<ul class="button-bar">
+						<li><a href="">Pagina {{ resultado.number }} de {{ resultado.paginator.num_pages }}</a></li>
+						<li><a href=""><span class="icon" data-icon="{"></span> </a></li>
+						{%for i in range %}
+						<li><a href="?pagina={{ i }}">{{i}}</a></li>
+						{% endfor %}
+						<li><a href=""><span class="icon" data-icon="}"></span> </a></li>
+					</ul>
+				</span>-->
+					<!--<a href="?pagina={{ resultado.next_page_number }}">Proxima</a>
+				{% endif %}-->
+				
+				
+			</span>
+		</div> 
+		
+	</div>
+	
+	{%endblock%}
+{% endblock %}
+
+

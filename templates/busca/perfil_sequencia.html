@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+
+{% block corpo %}
+<h3>{{ sequencia.titulo }} <a href="{{ sequencia.arquivo.url }}">(download)</a></h3>
+<p style="font-size: 11px;">ID da sequência: {{ sequencia.id }}</p>
+<div id="informacao">
+	<p>
+		{% if sequencia.tipo == 'N' %}
+		<b>Tipo:</b> Nucleotídeo</br>
+		{% else %}
+		<b>Tipo:</b> Proteína</br>
+		{% endif %}
+		<b>Planta:</b> {{ planta.nome_cientifico }}</br>
+		<b>Data de envio:</b> {{ sequencia.data }}</br>
+		<b>Fonte:</b> <a href="{{ sequencia.url }}" target="blank">{{ sequencia.url }}</a>
+	</p>
+	<p>
+		<b></br>Sequência: (Arquivo FASTA)</b></br>
+<div id="sequencia">
+<pre>
+{{ conteudo_seq }}
+</pre>
+</div>
+	</p>
+	<a href="javascript:history.go(-1);">Voltar</a>	
+</div>
+{% endblock %}

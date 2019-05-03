@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+
+{% block corpo %}
+<form id="form-contato" method="post">
+	
+	{% csrf_token %}
+    {% for campo in contato_form %}
+        <div class="fieldWrapper">
+        	{{ campo.errors }}
+            {{ campo.label_tag }}:</br>
+			{{ campo }}
+        </div>
+    {% endfor %}
+	<button type="submit" class="button-contato">Enviar</button>
+	
+</form>
+{% endblock %}
